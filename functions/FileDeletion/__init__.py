@@ -11,19 +11,6 @@ from azure.search.documents import SearchClient
 from azure.storage.blob import BlobServiceClient
 from shared_code.status_log import State, StatusClassification, StatusLog
 
-blob_connection_string = os.environ["BLOB_CONNECTION_STRING"]
-blob_storage_account_upload_container_name = os.environ[
-    "BLOB_STORAGE_ACCOUNT_UPLOAD_CONTAINER_NAME"]
-blob_storage_account_output_container_name = os.environ[
-    "BLOB_STORAGE_ACCOUNT_OUTPUT_CONTAINER_NAME"]
-azure_search_service_endpoint = os.environ["AZURE_SEARCH_SERVICE_ENDPOINT"]
-azure_search_index = os.environ["AZURE_SEARCH_INDEX"]
-azure_search_service_key = os.environ["AZURE_SEARCH_SERVICE_KEY"]
-cosmosdb_url = os.environ["COSMOSDB_URL"]
-cosmosdb_key = os.environ["COSMOSDB_KEY"]
-cosmosdb_log_database_name = os.environ["COSMOSDB_LOG_DATABASE_NAME"]
-cosmosdb_log_container_name = os.environ["COSMOSDB_LOG_CONTAINER_NAME"]
-
 def main(mytimer: func.TimerRequest) -> None:
     '''This function is a cron job that runs every 10 miuntes, detects when 
     a file has been deleted in the upload container and 
